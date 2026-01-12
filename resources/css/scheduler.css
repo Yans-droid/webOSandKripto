@@ -1,0 +1,329 @@
+/* resources/css/scheduler.css */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.card-title {
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: 12px;
+    border: 1px solid #d1d5db;
+    background: #ffffff;
+    color: #111827; /* ⬅️ INI PENTING */
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: #111827;
+    border-color: #111827;
+    color: #fff;
+}
+
+.btn-danger {
+    background: #fef2f2;
+    border-color: #fecaca;
+    color: #b91c1c;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.table th,
+.table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #e5e7eb;
+    text-align: left;
+}
+
+.table thead th {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #6b7280;
+    background: #f9fafb;
+}
+
+.badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    background: #f3f4f6;
+    color: #374151;
+}
+
+/* gantt */
+.gantt {
+    display: flex;
+    width: fit-content;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.gantt-block {
+    border-right: 1px solid #e5e7eb;
+    padding: 10px 12px;
+    text-align: center;
+}
+
+.gantt-pid {
+    font-weight: 800;
+}
+.gantt-time {
+    font-size: 12px;
+    color: #6b7280;
+    margin-top: 4px;
+}
+/* === GANTT COLORS === */
+.gantt-block {
+    border-right: 1px solid #e5e7eb;
+    padding: 10px 12px;
+    text-align: center;
+    color: #111827;
+    font-weight: 700;
+}
+
+/* warna default fallback */
+.gantt-block {
+    background: #f3f4f6;
+}
+
+/* warna berdasarkan PID */
+.gantt-pid-P1 {
+    background: #bfdbfe;
+} /* blue */
+.gantt-pid-P2 {
+    background: #bbf7d0;
+} /* green */
+.gantt-pid-P3 {
+    background: #fde68a;
+} /* yellow */
+.gantt-pid-P4 {
+    background: #fecaca;
+} /* red */
+.gantt-pid-P5 {
+    background: #ddd6fe;
+} /* purple */
+.gantt-pid-P6 {
+    background: #fed7aa;
+} /* orange */
+
+.gantt-idle {
+    background: #e5e7eb;
+    color: #6b7280;
+}
+/* === GANTT LEGEND === */
+.gantt-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    border: 1px solid #e5e7eb;
+    background: #fff;
+}
+
+.legend-color {
+    width: 14px;
+    height: 14px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* reuse warna gantt */
+.legend-P1 {
+    background: #bfdbfe;
+}
+.legend-P2 {
+    background: #bbf7d0;
+}
+.legend-P3 {
+    background: #fde68a;
+}
+.legend-P4 {
+    background: #fecaca;
+}
+.legend-P5 {
+    background: #ddd6fe;
+}
+.legend-P6 {
+    background: #fed7aa;
+}
+.legend-IDLE {
+    background: #e5e7eb;
+}
+/* === TOOLTIP (Gantt hover) === */
+.gantt-block {
+    position: relative;
+}
+
+.gantt-block[data-tip]:hover::after {
+    content: attr(data-tip);
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% + 10px);
+    transform: translateX(-50%);
+    white-space: pre; /* penting biar \n jadi baris baru */
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: rgba(17, 24, 39, 0.95);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+    z-index: 50;
+    min-width: 160px;
+    pointer-events: none;
+}
+
+.gantt-block[data-tip]:hover::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% + 4px);
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: rgba(17, 24, 39, 0.95);
+    z-index: 51;
+    pointer-events: none;
+}
+/* === FORM INPUT === */
+.input {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    font-size: 14px;
+    font-family: inherit;
+    background: #fff;
+    box-sizing: border-box;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.input:focus {
+    outline: none;
+    border-color: #9ca3af;
+    box-shadow: 0 0 0 3px rgba(156, 163, 175, 0.25);
+}
+
+textarea.input {
+    resize: vertical;
+    min-height: 90px;
+}
+
+/* label biar konsisten */
+.form-group {
+    margin-bottom: 14px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: #374151;
+}
+/* === ADD PROCESS FORM === */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    align-items: end;
+    margin-top: 10px;
+}
+
+/* responsive */
+@media (max-width: 900px) {
+    .form-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 520px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* field wrapper */
+.form-field label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: #374151;
+}
+
+/* tombol di form */
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+.form-actions .btn {
+    width: 100%;
+}
+/* === RUN SIMULATION FORM === */
+.runbar {
+    display: flex;
+    gap: 10px;
+    align-items: end;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.runbar .form-field {
+    margin: 0;
+    min-width: 160px;
+}
+
+.runbar .form-field.small {
+    min-width: 120px;
+    max-width: 140px;
+}
+
+.runbar .form-actions {
+    min-width: 180px;
+}
+
+.help {
+    margin-top: 6px;
+    font-size: 12px;
+    color: #6b7280;
+}
