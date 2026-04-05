@@ -5,18 +5,14 @@
             "runtime": "vercel-php@0.7.5"
         }
     },
-    "routes": [
+    "rewrites": [
         {
-            "src": "/build/(.*)",
-            "dest": "/public/build/$1"
+            "source": "/build/(.*)",
+            "destination": "/public/build/$1"
         },
         {
-            "src": "/(css|js|images|favicon.ico|robots.txt)/(.*)",
-            "dest": "/public/$1/$2"
-        },
-        {
-            "src": "/(.*)",
-            "dest": "/api/index.php"
+            "source": "/(.*)",
+            "destination": "/api/index.php"
         }
     ]
 }
